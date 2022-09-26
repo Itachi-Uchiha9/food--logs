@@ -1,0 +1,42 @@
+<% content_for :title do %>
+  <%= @food_log.meal_type%>
+<% end %>
+
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+    <p class="panel-heading">
+    <%= @food_log.meal_type %>
+    </p>
+
+    <div class="panel-block">
+      Calories: <%= @food_log.calories%>
+    </div>
+
+    <div class="panel-block">
+      Proteins: <%= @food_log.proteins%>
+    </div>
+
+    <div class="panel-block">
+      Carbohydrates: <%= @food_log.carbohydrates%>
+    </div>
+
+    <div class="panel-block">
+      Fats: <%= @food_log.fats%>
+    </div>
+    </nav>
+
+    <div class="column is-inline">
+      <div class="column">
+        <%= link_to "Edit",edit_food_log_path(@food_log),class: "button is-gray"%>
+      </div>
+      <div class="column">
+        <%= link_to "Home", food_logs_path,class: "button is-gray" %>
+      </div>
+      <div class="column">
+        <%= button_to "Delete",@food_log, method: :delete ,data: {confirm: "Are you sure? "},:remote=> true,class: " button is-gray" %>
+      </div>
+    </div>
+  </div>
+</div>
+

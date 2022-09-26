@@ -1,0 +1,35 @@
+<% content_for :title do%>
+  FoodLog &ndash; <%= DateTime.now.to_s%>
+<% end %>
+
+<div class="mt-6 is-centered">
+   <% @food_logs.each do |food_log| %>
+    <div class="column is one-quarter">
+      <div class="card">
+        <header class="card-header">
+          <p class ="card-header-title"><%= food_log.meal_type %></p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+          <p><span class="has-text-weight-bold"><%= food_log.calories%></span> calories</p>
+          <p><span class="has-text-weight-bold"><%= food_log.proteins%></span> grams of proteins</p>
+          <p><span class="has-text-weight-bold"><%= food_log.carbohydrates%></span> grams of carbohydrates</p>
+          <p><span class="has-text-weight-bold"><%= food_log.fats%></span> grams of fats</p>
+          <p class="italic"> Logged <%= time_ago_in_words(food_log.created_at)%> ago </p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <%= link_to "Show",food_log,class: "card-footer-item"%>
+        <%= link_to "Edit",edit_food_log_path(food_log),class: "card-footer-item"%>
+        <%= link_to "Destroy",food_log,method: :delete,data: {confirm: 'Are you sure?'},class: "card-footer-item"%>
+
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+ 
+   
